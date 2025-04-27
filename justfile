@@ -8,7 +8,7 @@ cc := 'gcc'
 cd := 'gdb'
 ct := 'valgrind'
 c-standard := 'c11'
-c-common-flags := '-D_POSIX_C_SOURCE=200809L -std=' + c-standard + ' -pedantic -W -Wall -Wextra -Werror -I./src/headers -Wno-unused-parameter -Wno-unused-variable'
+c-common-flags := '-D_POSIX_C_SOURCE=200809L -std=' + c-standard + ' -pedantic -W -Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-variable'
 c-release-flags := c-common-flags + ' -O3 ' + c-extra-flags
 c-debug-flags := c-common-flags + ' -g -g' + cd + ' ' + c-extra-flags
 c-extra-flags := ''

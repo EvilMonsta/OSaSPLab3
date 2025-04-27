@@ -52,13 +52,6 @@ void sigusr2_handler(int signal)  {
     is_stdout_open = 0;
 }
 
-void sighup_handler(int signal) {
-    (void)signal;
-    print_statistic(getppid(), getpid());
-}
-
-
-
 // REG SIGNALS
 
 void signal_handlers() {
@@ -68,12 +61,8 @@ void signal_handlers() {
     disallow_signal.sa_handler = sigusr2_handler;
     disallow_signal.sa_flags = SA_RESTART;
 
-    stat_request_signal.sa_handler = sighup_handler;
-    stat_request_signal.sa_flags = SA_RESTART;
-
     sigaction(SIGUSR1, &allow_signal, NULL);
     sigaction(SIGUSR2, &disallow_signal, NULL);
-    sigaction(SIGHUP, &stat_request_signal, NULL);
 }
 
 
